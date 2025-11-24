@@ -1,67 +1,57 @@
 #include <iostream>
 using namespace std;
 
-void swap_by_ref(int &a, int &b) //&a means the function gets passed the memory adress of a so we pass in memory adress
-{
-	//because you cannot change the physical location in memory you have to change the value of the variable
-    int temp = a;
-	//value of a is now b
-    a = b;
-	//value of b is now a
-    b = temp;
-}
-void swap_by_ptr(int *a, int *b) //*a means the function gets passed the pointer
+void swap_by_ptr(int *a, int *b)
 {
     int temp = *a;
     *a = *b;
     *b = temp;
-	//pointers can be null so you dont have to declare them
 }
-void sort_three_ints(int &a,int &b,int &c)
+
+void sort_three_pointers(int *a, int *b, int *c)
 {
-	int min;
-	int max;
-	int temp;
-
-	a = min;
-	if (a > b){ swap_by_ref(a,b);}
-	
+    if (*a > *b) {
+        swap_by_ptr(a, b);
+    }
+    if (*b > *c) {
+        swap_by_ptr(b, c);
+    }
+    if (*a > *b) {
+        swap_by_ptr(a, b);
+    }
 }
-
-void swap_by_ptr(int *a, int *b);
-void swap_by_ref(int &a, int &b);
 
 int main(){
-	int x; //Declaring a value for x
+	int x;
 	int y;
 	int z;
-	int *A;  //Declaring the pointer
+	int *A;
 	int *B;
 	int *C;
 
-	//store memory address of value x in memory address A
 	A = &x;
 	B = &y;
 	C = &z;
 
-	cout << "Enter a integer then press enter (three times please)\n";
-	cin >> x;
-	cin >> y;
-	cin >> z;
+	cout << "Enter three integers, separated by spaces: ";
+	cin >> x >> y >> z;
+
+	cout << "========================================== \n";
+	cout << "Before sorting:\n";
+	cout << "x = " << x << ", y = " << y << ", z = " << z << "\n";
+	cout << A << "is the adress of X \n";
+	cout << B << "is the adress of Y \n";
+	cout << C << "is the adress of Z \n";
 	cout << "========================================== \n";
 
-	cout << x << ' ' << y << z << '\n';
-    cout << *A <<" is the value of the address A.\n";
-    cout << *B <<" is the value of the address B.\n";
-	cout << *C <<" is the value of the address C.\n";
-	cout << "========================================== \n";
-	//Break to make console output easier to see
+	sort_three_pointers(A, B, C);
 
-	swap_by_ref(x,y);
-	//Checks to see if the swaps worked
-	cout << *A <<" is the value of the address A.\n";
-	cout << *B <<" is the value of the address B.\n";
-	cout << *C <<" is the value of the address C.\n";
+	cout << "After sorting:\n";
+	cout << "x = " << x << ", y = " << y << ", z = " << z << "\n";
+	cout << A << "is the adress of X \n";
+	cout << B << "is the adress of Y \n";
+	cout << C << "is the adress of Z \n";
+	cout << "========================================== \n";
 
 	return 0;
 }

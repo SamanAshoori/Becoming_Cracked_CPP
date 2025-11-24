@@ -17,14 +17,24 @@ void swap_by_ptr(int *a, int *b) //*a means the function gets passed the pointer
     *b = temp;
 	//pointers can be null so you dont have to declare them
 }
+void sort_three_ints(int &a,int &b,int &c)
+{
+	int min;
+	int max;
+	int temp;
+
+	a = min;
+	if (a > b){ swap_by_ref(a,b);}
+	
+}
 
 void swap_by_ptr(int *a, int *b);
 void swap_by_ref(int &a, int &b);
 
 int main(){
-	int x = 5; //Declaring a value for x
-	int y = 2;
-	int z = 11;
+	int x; //Declaring a value for x
+	int y;
+	int z;
 	int *A;  //Declaring the pointer
 	int *B;
 	int *C;
@@ -34,9 +44,16 @@ int main(){
 	B = &y;
 	C = &z;
 
-	cout << x << ' ' << y << '\n';
+	cout << "Enter a integer then press enter (three times please)\n";
+	cin >> x;
+	cin >> y;
+	cin >> z;
+	cout << "========================================== \n";
+
+	cout << x << ' ' << y << z << '\n';
     cout << *A <<" is the value of the address A.\n";
     cout << *B <<" is the value of the address B.\n";
+	cout << *C <<" is the value of the address C.\n";
 	cout << "========================================== \n";
 	//Break to make console output easier to see
 
@@ -44,6 +61,7 @@ int main(){
 	//Checks to see if the swaps worked
 	cout << *A <<" is the value of the address A.\n";
 	cout << *B <<" is the value of the address B.\n";
+	cout << *C <<" is the value of the address C.\n";
 
 	return 0;
 }

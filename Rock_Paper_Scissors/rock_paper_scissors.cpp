@@ -31,4 +31,26 @@ int main()
     std::cout << "You entered: " << umap[x] << '\n';
     std::cout << "Computer entered: " << umap[computerChoice] << '\n';
 
+    //SADLY GOING TO IF STATEMENT MAX as my current knowledge of c++ is not advanced yet
+    if(x == computerChoice){
+        std::cout << "Draw" << '\n';
+    }
+    //Will else if all player wins and any else is computer win
+    //player rock and computer rock
+    else if(x == 1 && computerChoice == 3){
+        std::cout << "You Win" << '\n';
+    }
+    //player paper and computer rock
+    else if(x == 2 && computerChoice == 1){
+        std::cout << "You Win" << '\n';
+    }
+    //player scissors and computer paper
+    else if(x == 3 && computerChoice == 2){
+        std::cout << "You Win" << '\n';
+    }
+    else{
+        std::cout << "Computer Won" << '\n';
+    }
+    
+
 }

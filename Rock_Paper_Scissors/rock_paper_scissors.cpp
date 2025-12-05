@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <string>
 #include <ctime>
+#include <vector> //for scoring
 
 int main()
 {
@@ -16,6 +17,7 @@ int main()
     int playerScore = 0;
     int computerScore = 0;
     int gamesPlayed = 0;
+    std::vector <std::string> rounds;
 
     // Create an unordered_map
     std::unordered_map<int,std::string> umap;
@@ -28,6 +30,7 @@ int main()
 
     while (playerScore != 3 && computerScore != 3 )
     {
+        std::cout << "-------------------------------------------------------------------------------------------" << '\n';
         std::cout << "Welcome to Rock Paper Scissors - Please Enter 1 for Rock , 2 for Paper and 3 for Scissors: ";
         int x{}; //defining variable to hold user input
 
@@ -42,6 +45,7 @@ int main()
         if(x == computerChoice)
         {
             std::cout << "Draw" << '\n';
+            rounds.push_back("Draw");
         }
         //Will else if all player wins and any else is computer win
         //player rock and computer rock
@@ -49,39 +53,50 @@ int main()
         {
             std::cout << "You Win" << '\n';
             playerScore = playerScore + 1;
-            std::cout << "Player Score " << playerScore << '\n';
+            rounds.push_back("Player Win");
         }
         //player paper and computer rock
         else if(x == 2 && computerChoice == 1)
         {
             std::cout << "You Win" << '\n';
             playerScore = playerScore + 1;
-           std::cout << "Player Score " << playerScore << '\n';
+           rounds.push_back("Player Win");
         }
         //player scissors and computer paper
         else if(x == 3 && computerChoice == 2)
         {
             std::cout << "You Win" << '\n';
             playerScore = playerScore + 1;
-            std::cout << "Player Score " << playerScore << '\n';
+            rounds.push_back("Player Win");
         }
         else
         {
         std::cout << "Computer Won" << '\n';
         computerScore = computerScore +1;
-        std::cout << "Computer Score " << computerScore << '\n';
+        rounds.push_back("Computer Win");
         }
         gamesPlayed = gamesPlayed + 1;
     }
+    std::cout << "------------------------------------------------------------" << '\n';
     if(playerScore == 3)
     {
         std::cout << "You Won!" << '\n';
-        std::cout << "Games Played: " << gamesPlayed; 
+        std::cout << "Games Played: " << gamesPlayed << '\n'; 
+        std::cout << "----- Round History -----" << '\n';
+        for (int i = 0; i < rounds.size(); i++) 
+        {
+            std::cout << "Round " << i+1 << ": " << rounds[i] << "\n";
+        }
     }
     else
     {
         std::cout << "Computer Won!" << '\n';
-        std::cout << "Games Played: " << gamesPlayed; 
+        std::cout << "Games Played: " << gamesPlayed << '\n';
+        std::cout << "----- Round History -----" << '\n';
+        for (int i = 0; i < rounds.size(); i++) 
+        {
+            std::cout << "Round " << i+1 << ": " << rounds[i] << "\n";
+        }
     }
 
     

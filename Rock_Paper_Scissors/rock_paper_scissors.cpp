@@ -6,7 +6,7 @@
 #include <vector> //for scoring
 
 //Function Declaration
-void displayFinalStats();
+void displayFinalStats(std::vector <std::string> rounds, std::string winner, int gamesPlayed);
 
 int main()
 {
@@ -80,29 +80,19 @@ int main()
         gamesPlayed = gamesPlayed + 1;
     }
     std::cout << "------------------------------------------------------------" << '\n';
-    if(playerScore == 3)
-    {
-        std::cout << "You Won!" << '\n';
+    if(playerScore == 3) { displayFinalStats(rounds,"You",gamesPlayed);
+    }
+    else{ displayFinalStats(rounds,"Computer",gamesPlayed);
+    }
+}
+
+void displayFinalStats(std::vector <std::string> rounds, std::string winner, int gamesPlayed)
+{
+    std::cout << winner <<" Won!" << '\n';
         std::cout << "Games Played: " << gamesPlayed << '\n'; 
         std::cout << "----- Round History -----" << '\n';
         for (int i = 0; i < rounds.size(); i++) 
         {
             std::cout << "Round " << i+1 << ": " << rounds[i] << "\n";
         }
-    }
-    else
-    {
-        std::cout << "Computer Won!" << '\n';
-        std::cout << "Games Played: " << gamesPlayed << '\n';
-        std::cout << "----- Round History -----" << '\n';
-        for (int i = 0; i < rounds.size(); i++) 
-        {
-            std::cout << "Round " << i+1 << ": " << rounds[i] << "\n";
-        }
-    }
-}
-
-void displayFinalStats()
-{
-    
 }

@@ -7,7 +7,8 @@
 std::string selectRandomWord();
 
 int main(){
-    std::cout << selectRandomWord();
+    std::string word = selectRandomWord();
+    std::cout << word;
 }
 
 std::string selectRandomWord(){

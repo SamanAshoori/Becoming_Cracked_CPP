@@ -9,6 +9,11 @@ std::string selectRandomWord();
 int main(){
     std::string word = selectRandomWord();
     //std::cout << word; - dont need it for now as we know it works
+
+    //std::string guess;
+    //std::cin >> guess;
+    //std::cout << guess;
+
 }
 
 std::string selectRandomWord(){

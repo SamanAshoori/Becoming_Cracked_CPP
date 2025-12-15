@@ -5,14 +5,18 @@
 #include <ctime>
 
 std::string selectRandomWord();
+bool guessLetter(std::string word, char input);
 
 int main(){
-    std::string word = selectRandomWord();
+    //std::string word = selectRandomWord(); - hidden for testing
+    std::string word = "Test";
     //std::cout << word; - dont need it for now as we know it works
 
     //std::string guess;
     //std::cin >> guess;
     //std::cout << guess;
+    std::cout << guessLetter(word,'t');
+    std::cout << "Test";
 
 }
 
@@ -46,9 +50,13 @@ bool guessLetter(std::string word, char input){
 
     int n = word.length();
     for (int i = 0; i < n; i++){
-        //for loop to run through - need to add
+        if (input == word[i]){
+            return true;
+        }
+        else
+        {
+            //Do nothing
+        }
     }
-    //example outputfor now
-    return true;
-
+    return false; //if reached end of for loop and no true then it does not exist
 }

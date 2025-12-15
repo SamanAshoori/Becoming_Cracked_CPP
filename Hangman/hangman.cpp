@@ -34,10 +34,8 @@ std::string selectRandomWord(){
         "vortex",
         "luminance"
     };
-
     // Auto-calculate size
     int size = sizeof(words) / sizeof(words[0]);
-    
     // Generates 0 to 9 safely
     int randomNum = std::rand() % size;
     std::string word = words[randomNum];
@@ -51,10 +49,6 @@ bool guessLetter(std::string word, char input){
     for (int i = 0; i < n; i++){
         if (input == word[i]){
             return true;
-        }
-        else
-        {
-            //Do nothing
         }
     }
     return false; //if reached end of for loop and no true then it does not exist

@@ -8,8 +8,9 @@ std::string selectRandomWord();
 bool guessLetter(std::string word, char input);
 
 int main(){
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
     //std::string word = selectRandomWord(); - hidden for testing
-    std::string word = "Test";
+    std::string word = "test";
 
     char guess;
     std::cout << "Please enter a guess" << '\n';
@@ -20,8 +21,6 @@ int main(){
 }
 
 std::string selectRandomWord(){
-    
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
     std::string words[10] = {
         "programmer",
         "language",
@@ -45,6 +44,7 @@ std::string selectRandomWord(){
 
 bool guessLetter(std::string word, char input){
 
+    input = std::tolower(input);
     int n = word.length();
     for (int i = 0; i < n; i++){
         if (input == word[i]){

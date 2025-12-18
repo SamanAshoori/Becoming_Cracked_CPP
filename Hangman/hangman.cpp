@@ -58,6 +58,10 @@ bool guessLetter(std::string word, char input){
 std::string makeDisplayWord(std::string word){
     std::string displayWord;
     int i = word.length();
+    displayWord = word;
+    for (int j = 0; j < i ; j++){
+        displayWord[j] = '_';
+    }
     return displayWord;
 
 }

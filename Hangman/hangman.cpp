@@ -9,6 +9,8 @@ bool guessLetter(std::string word, char input);
 std::string makeDisplayWord(std::string word);
 
 int main(){
+    int lives = 13;
+    int guesses = 0;
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
     //std::string word = selectRandomWord(); - hidden for testing
     std::string word = "test";

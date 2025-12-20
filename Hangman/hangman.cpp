@@ -4,11 +4,12 @@
 #include <string>
 #include <ctime>
 #include <vector>
+#include <cctype>
 
 std::string selectRandomWord();
 std::vector<int> guessLetter(std::string word, char input);
 std::string makeDisplayWord(std::string word);
-void revealLetters(std::vector<int>& inputVector , std::string& displayWord , char guess);
+void revealLetters(const std::vector<int>& inputVector , std::string& displayWord , char guess);
 
 int main(){
     int lives = 13;
@@ -34,6 +35,7 @@ int main(){
 
     //std::cout << word << '\n';
     //std::cout << displayWord << '\n';
+    return 1;
     
 
 }

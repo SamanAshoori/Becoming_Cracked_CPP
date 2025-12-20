@@ -22,15 +22,36 @@ int main(){
     std::string displayWord = makeDisplayWord(word);
 
 
-    std::cout << "Your word to guess is: " << displayWord << '\n';
+    
     //Main Game Loop - while you have lives and the display word is still hidden
     while (lives > 0 || displayWord != word){
+        std::cout << "Your word to guess is: " << displayWord << '\n';
+        std::cout << "You have " << lives << " lives" << '\n';
+
         char guess;
         std::cout << "Please enter a guess" << '\n';
         std::cin >> guess;
-        
+
+        guessVector = guessLetter(word,guess);
+        if (guessVector.empty()){
+            lives--;
+        }
+        else{
+            revealLetters(guessVector,displayWord,guess);
+        }
 
     }
+    if(lives == 0){
+        std::cout << "You lost - the word was: " << word << '\n';
+    }
+    else if (displayWord == word)
+    {
+        std::cout << "You won - with " << lives << " lives left" << '\n';
+    }
+    else{
+        std::cout << "I dont know what could cause this condition";
+    }
+    
 
     return 1;
     

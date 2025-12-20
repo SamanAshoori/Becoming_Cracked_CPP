@@ -24,7 +24,7 @@ int main(){
 
     
     //Main Game Loop - while you have lives and the display word is still hidden
-    while (lives > 0 || displayWord != word){
+    while (lives > 0 && displayWord != word){
         std::cout << "Your word to guess is: " << displayWord << '\n';
         std::cout << "You have " << lives << " lives" << '\n';
 

@@ -14,12 +14,16 @@ int main(){
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
     //std::string word = selectRandomWord(); - hidden for testing
     std::string word = "test";
+    std::string displayWord = makeDisplayWord(word);
 
-    char guess;
-    std::cout << "Please enter a guess" << '\n';
-    std::cin >> guess;
+    //char guess;
+    //std::cout << "Please enter a guess" << '\n';
+    //std::cin >> guess;
 
-    std::cout << guessLetter(word,guess);
+    //std::cout << guessLetter(word,guess);
+    std::cout << word << '\n';
+    std::cout << displayWord << '\n';
+    
 
 }
 

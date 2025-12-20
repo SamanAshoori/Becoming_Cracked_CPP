@@ -23,7 +23,12 @@ int main(){
     //std::cin >> guess;
 
     guessVector = guessLetter(word,'t');
-    
+
+    for (int i : guessVector) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
 
     //std::cout << word << '\n';
     //std::cout << displayWord << '\n';

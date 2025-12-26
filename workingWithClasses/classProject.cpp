@@ -14,10 +14,19 @@
 
 class Entity {
     public:
-        int health;
         std::string name;
+
+        Entity(std::string input){
+            name = input;
+        }
+
+    private:
+        int health;
+
+    
 };
 
 class Player : public Entity{
+
 
 };

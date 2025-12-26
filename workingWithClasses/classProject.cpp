@@ -20,10 +20,12 @@ class Entity {
             name = input;
         }
 
+        void takeDamage(int damage){
+            health -= damage;
+        }
+
     private:
         int health;
-
-    
 };
 
 class Player : public Entity{

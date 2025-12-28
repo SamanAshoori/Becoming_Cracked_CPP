@@ -44,9 +44,8 @@ class Player : public Entity{
 
 int main(){
 
-    Entity testEntity;
+    Entity testEntity("Test");
 
     testEntity.setMaxHealth(10);
-    testEntity.setName("Test");
     return 0;
 }

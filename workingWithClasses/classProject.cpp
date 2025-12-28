@@ -16,6 +16,8 @@ class Entity {
     public:
         Entity(std::string input){
             name = input;
+            health = 0;
+            max_health = 0;
         }
 
         void takeDamage(int damage){
@@ -38,7 +40,8 @@ class Entity {
 };
 
 class Player : public Entity{
-
+    public:
+        Player(std::string input) : Entity(input) {}
 };
 
 

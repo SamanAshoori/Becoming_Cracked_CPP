@@ -11,6 +11,7 @@
 //Above Prompt is prompt when asked where can I go from hangman to improve c++
 
 #include <string>
+#include <iostream>
 
 class Entity {
     public:
@@ -30,6 +31,7 @@ class Entity {
         }
         void setMaxHealth(int input){
             max_health = input;
+            std::cout << "Max Health has been set";
         }
 
     private:

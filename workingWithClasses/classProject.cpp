@@ -14,8 +14,6 @@
 
 class Entity {
     public:
-        std::string name;
-
         Entity(std::string input){
             name = input;
         }
@@ -24,8 +22,19 @@ class Entity {
             health -= damage;
         }
 
+        void setName(std::string input){
+            name = input;
+
+        }
+        void setMaxHealth(int input){
+            max_health = input;
+        }
+
     private:
         int health;
+        int max_health;
+        std::string name;
+
 };
 
 class Player : public Entity{

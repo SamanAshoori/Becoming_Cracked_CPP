@@ -10,6 +10,7 @@
 
 #include <string>
 #include <iostream>
+#include <random>
 
 class Entity {
 public:
@@ -24,6 +25,12 @@ public:
                 health = 0;
             }
         }
+    }
+
+    int attack(){
+        static std::mt19937 rng{std::random_device{}()};
+        std::uniform_int_distribution<> dist(0,3);
+        return dist(rng);
     }
 
     // Getters for name and health
@@ -63,6 +70,10 @@ int main() {
 
     player.takeDamage(3);
     std::cout << player.getName() << " takes 3 damage. Now has " << player.getHealth() << "/" << player.getMaxHealth() << " health." << std::endl;
+
+    for (int i = 0; i < 10;i++){
+        std::cout << player.attack() << '\n';
+    }
 
     return 0;
 }

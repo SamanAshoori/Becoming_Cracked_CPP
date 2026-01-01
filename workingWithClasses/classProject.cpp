@@ -14,7 +14,7 @@
 class Entity {
 public:
     // Constructor to initialize name and max health
-    Entity(std::string inputName, int inputMaxHealth) : name(inputName), max_health(inputMaxHealth), health(max_health) {}
+    Entity(std::string inputName, int inputMaxHealth) : name(inputName), max_health(inputMaxHealth), health(inputMaxHealth) {}
 
     // Method to take damage
     void takeDamage(int damage) {
@@ -54,6 +54,9 @@ public:
 int main() {
     //Test Player
     Player player("Hero", 10);
+
+    //get player health
+    std::cout << player.getHealth() << '\n';
 
     //test output
     std::cout << player.getName() << " has " << player.getHealth() << "/" << player.getMaxHealth() << " health." << std::endl;

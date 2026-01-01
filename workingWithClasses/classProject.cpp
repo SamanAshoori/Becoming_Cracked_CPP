@@ -40,8 +40,8 @@ public:
     }
 
 private:
-    int health;
     int max_health;
+    int health;
     std::string name;
 };
 

@@ -8,52 +8,58 @@
 //RNG: Better random number generation for damage variance (e.g., hitting for 5-10 damage).
 //Spicy Twist (For the brave): Implement Inheritance. Make a base class Entity, then have Player and Goblin inherit from it.
 
-//Above Prompt is prompt when asked where can I go from hangman to improve c++
-
 #include <string>
 #include <iostream>
 
 class Entity {
-    public:
-        Entity(std::string input){
-            name = input;
-            health = 0;
-            max_health = 0;
-        }
+public:
+    // Constructor to initialize name and max health
+    Entity(std::string inputName, int inputMaxHealth) : name(inputName), max_health(inputMaxHealth), health(max_health) {}
 
-        void takeDamage(int damage){
+    // Method to take damage
+    void takeDamage(int damage) {
+        if (damage > 0) {
             health -= damage;
+            if (health < 0) {
+                health = 0;
+            }
         }
+    }
 
-        void setName(std::string input){
-            name = input;
+    // Getters for name and health
+    std::string getName() const {
+        return name;
+    }
 
-        }
-        void setMaxHealth(int input){
-            max_health = input;
-            std::cout << "Max Health has been set";
-        }
+    int getHealth() const {
+        return health;
+    }
 
-    private:
-        int health;
-        int max_health;
-        std::string name;
+    int getMaxHealth() const {
+        return max_health;
+    }
 
+private:
+    int health;
+    int max_health;
+    std::string name;
 };
 
-class Player : public Entity{
-    public:
-        Player(std::string input) : Entity(input) {}
+class Player : public Entity {
+public:
+    // Constructor for Player class
+    Player(std::string inputName, int inputMaxHealth) : Entity(inputName, inputMaxHealth) {}
 };
 
+int main() {
+    //Test Player
+    Player player("Hero", 10);
 
-int main(){
+    //test output
+    std::cout << player.getName() << " has " << player.getHealth() << "/" << player.getMaxHealth() << " health." << std::endl;
 
-    Entity testEntity("Test");
+    player.takeDamage(3);
+    std::cout << player.getName() << " takes 3 damage. Now has " << player.getHealth() << "/" << player.getMaxHealth() << " health." << std::endl;
 
-    testEntity.setMaxHealth(10);
     return 0;
 }
-
-
-

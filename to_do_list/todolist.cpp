@@ -9,7 +9,7 @@ int main(){
     return 0;
 }
 
-void writeFile(){
+void writeFile(std::string input){
     std::ofstream test("test.txt");
     test << "This is a test";
     test.close();

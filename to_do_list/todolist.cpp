@@ -11,6 +11,6 @@ int main(){
 
 void writeFile(std::string input){
     std::ofstream test("test.txt");
-    test << "This is a test";
+    test << input;
     test.close();
 }

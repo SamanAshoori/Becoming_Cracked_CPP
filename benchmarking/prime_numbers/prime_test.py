@@ -15,3 +15,5 @@ def print_primes(n):
 # Example usage
 N = 50
 print_primes(N)
+
+#TO DO: LOOP 3 TIMES AND GET AVERAGE PRIMES CREATED IN 1 SECOND

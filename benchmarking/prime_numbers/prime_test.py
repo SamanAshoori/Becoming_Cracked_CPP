@@ -1,3 +1,9 @@
+#Import time to for 1 second
+import time
+nums_checked = 0
+start_time = time.perf_counter()
+end_time = start_time + 1
+
 #Creating as many prime numbers as I can in one second
 def is_prime(num):
     if num <= 1:
@@ -7,13 +13,16 @@ def is_prime(num):
             return False
     return True
 
-def print_primes(n):
-    for num in range(2, n + 1):
-        if is_prime(num):
-            print(num)
+def print_primes():
+    while time.perf_counter() < end_time:
+        for num in range(1,1000000):
+            if is_prime(num):
+                print(num)
+                nums_checked +=1
+    print(f"Python Iterations: {nums_checked}")
 
 # Example usage
-N = 50
-print_primes(N)
+
+print_primes()
 
 #TO DO: LOOP 3 TIMES AND GET AVERAGE PRIMES CREATED IN 1 SECOND

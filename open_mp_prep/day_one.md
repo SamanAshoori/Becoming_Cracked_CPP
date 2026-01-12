@@ -39,4 +39,5 @@ Arrays in C++ are stored in sequence (Modern CPU fetch typically 64 bytes at a t
 ptrB - PtrA returns number of elements but typecasting char returns the number of bytes
 
 ## Direct Memory Access
-used an address of a variable to do in place modification
+Pass by pointers avoid overhead of copying data to allow remote modification of callers stack frame
+

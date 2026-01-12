@@ -5,7 +5,7 @@ int main(){
 
     for(int i = 0; i < 100;i++){
         arr[i] = i;
-        std::cout << arr[i] << std::endl;
+        std::cout << arr[i] << "lives at this address" <<  &arr[i] <<std::endl;
     }
     return 0;
 }
